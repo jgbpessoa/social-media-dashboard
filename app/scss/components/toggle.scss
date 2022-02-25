@@ -3,35 +3,23 @@
 
 .toggle {
   display: grid;
-  grid-template-columns: 1fr rem(60) 1fr;
-  grid-template-rows: repeat(2, 1fr);
-  gap: rem(4.8) rem(8);
+  grid-template-columns: 1fr rem(48);
   border: none;
   margin: 0;
 
   label {
     font-size: rem(14);
-    align-self: center;
+    font-weight: 700;
+    color: var(--toggle);
 
     &[for="dark"] {
-      grid-column: 1 / 2;
-      justify-self: end;
-    }
-    &[for="system"] {
-      grid-column: 1 / 4;
-      grid-row: 2 / 3;
-      justify-self: center;
-      align-self: start;
-    }
-    &[for="light"] {
-      grid-column: 3 / 4;
+      line-height: rem(24);
+      margin-right: rem(13);
     }
   }
 
   &__wrapper {
     position: relative;
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
     height: rem(24);
   }
 
@@ -74,10 +62,5 @@
 
   #light:checked ~ .toggle__button {
     left: calc(100% - rem(21));
-  }
-
-  #system:checked ~ .toggle__button {
-    left: 50%;
-    transform: translate(-50%);
   }
 }
