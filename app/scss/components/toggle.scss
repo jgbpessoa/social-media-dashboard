@@ -2,10 +2,16 @@
 // https://codepen.io/SaraSoueidan/pen/jpBbrq/?editors=1100
 
 .toggle {
-  display: grid;
-  grid-template-columns: 1fr rem(48);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   border: none;
   margin: 0;
+  padding: 0;
+
+  @include breakpoint(toggle) {
+    width: auto;
+  }
 
   label {
     font-size: rem(14);
@@ -26,11 +32,11 @@
   input[type="radio"] {
     margin: 0 rem(-2) 0 rem(-2);
     opacity: 0;
-    width: rem(20);
+    width: rem(24);
     height: rem(24);
 
     &:focus ~ .toggle__button {
-      border: 2px solid white;
+      border: 2px solid var(--toggle-focus);
     }
   }
 
@@ -41,26 +47,28 @@
     width: 100%;
     top: 0;
     border-radius: rem(12);
-    background: linear-gradient(
-      225deg,
-      var(--toggle-bg-end) 0%,
-      var(--toggle-bg-start) 98.02%
-    );
+    background: var(--toggle-bg);
     pointer-events: none;
   }
 
   &__button {
     position: absolute;
-    left: rem(3);
     top: rem(3);
     width: rem(18);
     height: rem(18);
     border-radius: 50%;
-    background-color: var(--dark-bg);
-    transition: all 150ms ease-in-out;
+    background-color: var(--toggle-button);
+    opacity: 0;
+    transition: all 250ms ease-in-out;
   }
 
   #light:checked ~ .toggle__button {
+    opacity: 1;
     left: calc(100% - rem(21));
+  }
+
+  #dark:checked ~ .toggle__button {
+    opacity: 1;
+    left: rem(3);
   }
 }

@@ -3,9 +3,22 @@
 .container {
   padding: 0 rem(25);
   max-width: rem(1110);
+  min-width: rem(250);
   margin: 0 auto rem(46);
 
   @include breakpoint(large) {
     padding: 0;
+  }
+}
+
+hr {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-top: solid 1px var(--text-color2);
+  margin: 1rem auto;
+
+  @include breakpoint(medium) {
+    display: none;
   }
 }
